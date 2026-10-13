@@ -1,12 +1,12 @@
 import React from 'react';
-import { Layers, ShieldCheck, Zap, Terminal } from 'lucide-react';
+import { FileText, Github, Linkedin, GraduationCap, Sparkles } from 'lucide-react';
 import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { SectionShell } from '@/components/layout/SectionShell';
-import { Card } from '@/components/common/Card';
 import { Button } from '@/components/common/Button';
-import { EduSchedulerPlaceholder } from '@/components/showcase/eduscheduler';
-import { TVEmulatorPlaceholder } from '@/components/showcase/tv-emulator';
+import { EduSchedulerWidget } from '@/components/showcase/eduscheduler';
+import { TVEmulatorWidget } from '@/components/showcase/tv-emulator';
+import { ContactSection } from '@/components/layout/Contact';
 
 export const App: React.FC = () => {
   return (
@@ -15,29 +15,63 @@ export const App: React.FC = () => {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative overflow-hidden border-b border-border/60 py-20 sm:py-24 bg-gradient-to-b from-background via-surface/30 to-background">
+        <section className="relative overflow-hidden border-b border-border/60 py-20 sm:py-28 bg-gradient-to-b from-background via-surface/40 to-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
-                <Terminal className="w-3.5 h-3.5" aria-hidden="true" />
-                <span>Production Architecture Portfolio</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
+                <GraduationCap className="w-4 h-4" aria-hidden="true" />
+                <span>Software Engineer (Master&apos;s Degree)</span>
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground leading-[1.1]">
-                Senior Frontend Architect &amp; Systems Engineer
+
+              <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-foreground leading-[1.08]">
+                Miloš Petrović
               </h1>
-              <p className="mt-6 text-lg sm:text-xl text-muted-foreground leading-relaxed">
-                Bridging high-scale modern web applications with React 19 &amp; strict TypeScript,
-                enterprise PHP backend systems, and high-performance 10-foot Smart TV UI with LightningJS.
+
+              <p className="mt-3 text-xl sm:text-2xl font-semibold text-primary/90">
+                Senior Frontend Architect &amp; Systems Engineer
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <a href="#eduscheduler">
-                  <Button variant="primary" size="lg">
-                    Explore Showcases
+
+              <p className="mt-5 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Specialized in high-scale modern web applications (React 19 &amp; strict TypeScript),
+                clean enterprise backend systems (PHP 8.x REST APIs), and hardware-constrained 10-foot
+                Smart TV UI runtimes (LightningJS WebGL/Canvas2D 60 FPS engines).
+              </p>
+
+              {/* Direct Action Buttons: CV, GitHub, LinkedIn */}
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#contact">
+                  <Button variant="primary" size="lg" className="gap-2 shadow-md">
+                    <FileText className="w-4 h-4" aria-hidden="true" />
+                    <span>Download CV</span>
                   </Button>
                 </a>
-                <a href="#architecture">
-                  <Button variant="outline" size="lg">
-                    System Architecture
+
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" size="lg" className="gap-2">
+                    <Github className="w-4 h-4" aria-hidden="true" />
+                    <span>GitHub</span>
+                  </Button>
+                </a>
+
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button variant="outline" size="lg" className="gap-2">
+                    <Linkedin className="w-4 h-4 text-blue-500" aria-hidden="true" />
+                    <span>LinkedIn</span>
+                  </Button>
+                </a>
+
+                <a href="#eduscheduler">
+                  <Button variant="ghost" size="lg" className="gap-1.5 text-xs text-muted-foreground">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500" aria-hidden="true" />
+                    <span>View Live Showcases ↓</span>
                   </Button>
                 </a>
               </div>
@@ -45,67 +79,34 @@ export const App: React.FC = () => {
           </div>
         </section>
 
-        {/* EduScheduler Showcase */}
+        {/* Showcase 1: EduScheduler */}
         <SectionShell
           id="eduscheduler"
           badge="Enterprise Showcase"
           title="EduScheduler: Resource Reservation Engine"
-          subtitle="Complex interval tree conflict detection with optimistic updates and typed PHP 8.x REST backend integration."
+          subtitle="Complex interval tree conflict detection with optimistic UI updates and typed PHP 8.x REST backend integration."
         >
-          <EduSchedulerPlaceholder />
+          <EduSchedulerWidget />
         </SectionShell>
 
-        {/* Smart TV Showcase */}
+        {/* Showcase 2: Smart TV LightningJS Emulator */}
         <SectionShell
           id="tv-emulator"
           badge="10-Foot UI Sandbox"
           title="Smart TV LightningJS Emulator"
-          subtitle="High-performance WebGL/Canvas2D 60 FPS rendering under constrained hardware budgets (<512MB RAM) and D-Pad spatial navigation."
+          subtitle="Hardware-constrained 60 FPS WebGL/Canvas2D rendering under strict memory budgets (<512MB RAM) and D-Pad spatial navigation."
         >
-          <TVEmulatorPlaceholder />
+          <TVEmulatorWidget />
         </SectionShell>
 
-        {/* Architecture Principles */}
+        {/* Contact Section */}
         <SectionShell
-          id="architecture"
-          badge="Engineering Standards"
-          title="Architectural Foundations"
-          subtitle="Strict adherence to non-negotiable engineering principles defined in our architectural dossier."
+          id="contact"
+          badge="Get in Touch"
+          title="Direct Contact &amp; Opportunities"
+          subtitle="Reach out directly for senior engineering collaboration, technical leadership, and system design."
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card variant="surface">
-              <div className="flex items-center gap-3 mb-3">
-                <ShieldCheck className="w-5 h-5 text-primary" aria-hidden="true" />
-                <h3 className="font-semibold text-foreground">Zero Any Policy</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                100% strict TypeScript typing. Discriminated unions for state, branded identifiers,
-                and runtime Zod schema parsing for all external data.
-              </p>
-            </Card>
-
-            <Card variant="surface">
-              <div className="flex items-center gap-3 mb-3">
-                <Layers className="w-5 h-5 text-primary" aria-hidden="true" />
-                <h3 className="font-semibold text-foreground">3-Tier Separation</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Pure presentation in UI components, reactive orchestration in custom hooks,
-                and zero-React transport and algorithms in services.
-              </p>
-            </Card>
-
-            <Card variant="surface">
-              <div className="flex items-center gap-3 mb-3">
-                <Zap className="w-5 h-5 text-primary" aria-hidden="true" />
-                <h3 className="font-semibold text-foreground">Hard Performance Budgets</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Sub-120KB gzipped core bundle, strict 60 FPS frame budgets, texture memory recycling,
-                and sub-second cold starts.
-              </p>
-            </Card>
-          </div>
+          <ContactSection />
         </SectionShell>
       </main>
 
